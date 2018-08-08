@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="14109" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="P0J-aw-4Hj">
+    <device id="watch38" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="watchOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="14031"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Symbol.ttf">
+            <string>Symbol</string>
+        </array>
+    </customFonts>
+    <scenes>
+        <!--Flight-->
+        <scene sceneID="snP-g3-zno">
+            <objects>
+                <controller identifier="Flight" title="Flight" hidesWhenLoading="NO" id="P0J-aw-4Hj" customClass="FlightInterfaceController" customModule="Watch_Extension">
+                    <items>
+                        <group width="134" alignment="left" id="eRl-AF-l3L">
+                            <items>
+                                <imageView width="40" height="40" alignment="left" image="Logo" contentMode="scaleAspectFit" id="Ad0-LE-gFi">
+                                    <color key="tintColor" red="0.98039215690000003" green="0.066666666669999999" blue="0.30980392159999998" alpha="1" colorSpace="calibratedRGB"/>
+                                </imageView>
+                                <group width="100" alignment="left" layout="vertical" id="1cG-uN-j1H">
+                                    <items>
+                                        <label alignment="left" text="Flight 123" id="G8F-sX-UPH">
+                                            <color key="textColor" red="0.98039215690000003" green="0.066666666669999999" blue="0.30980392159999998" alpha="1" colorSpace="calibratedRGB"/>
+                                        </label>
+                                        <label alignment="left" text="MEL to SFO" id="2HK-FF-U5C"/>
+                                    </items>
+                                </group>
+                            </items>
+                        </group>
+                        <group width="1" alignment="left" layout="vertical" id="XQH-IS-fV5">
+                            <items>
+                                <label alignment="left" text="AA123 Boards" id="7FV-7D-5gV">
+                                    <fontDescription key="font" type="system" pointSize="12"/>
+                                </label>
+                                <label height="33" alignment="left" text="15:06" id="gMd-ve-hgG">
+                                    <color key="textColor" red="0.98039215690000003" green="0.066666666669999999" blue="0.30980392159999998" alpha="1" colorSpace="calibratedRGB"/>
+                                    <fontDescription key="font" type="system" pointSize="44"/>
+                                </label>
+                                <label alignment="left" text="On Time" id="v9H-BW-pVt">
+                                    <color key="textColor" red="0.2458952663" green="1" blue="0.19060670860000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <fontDescription key="font" type="system" pointSize="13"/>
+                                </label>
+                            </items>
+                        </group>
+                        <group width="1" alignment="left" id="dEU-aK-A2y">
+                            <items>
+                                <label width="60" alignment="left" text="Gate 1A" textAlignment="left" id="VFR-r8-chV">
+                                    <fontDescription key="font" type="system" pointSize="14"/>
+                                </label>
+                                <label alignment="right" text="Seat 64 A" textAlignment="right" id="sPr-KD-h4W">
+                                    <fontDescription key="font" type="system" pointSize="14"/>
+                                </label>
+                            </items>
+                        </group>
+                    </items>
+                    <connections>
+                        <outlet property="boardTimeLabel" destination="gMd-ve-hgG" id="z1E-3d-HiA"/>
+                        <outlet property="boardingLabel" destination="7FV-7D-5gV" id="KsJ-N7-ded"/>
+                        <outlet property="flightLabel" destination="G8F-sX-UPH" id="cdz-eh-1P1"/>
+                        <outlet property="gateLabel" destination="VFR-r8-chV" id="JWX-fE-DWb"/>
+                        <outlet property="routeLabel" destination="2HK-FF-U5C" id="ErL-Hq-hlc"/>
+                        <outlet property="seatLabel" destination="sPr-KD-h4W" id="lsM-Be-Vov"/>
+                        <outlet property="statusLabel" destination="v9H-BW-pVt" id="dFO-Tc-nx6"/>
+                        <segue destination="nGv-VH-q5v" kind="relationship" relationship="nextPage" id="TrI-pa-N6K"/>
+                    </connections>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="211" y="369"/>
+        </scene>
+        <!--Location Interface Controller-->
+        <scene sceneID="W3K-1L-Ae5">
+            <objects>
+                <controller id="nGv-VH-q5v" customClass="LocationInterfaceController" customModule="Watch_Extension">
+                    <items>
+                        <group width="1" height="120" alignment="left" layout="vertical" id="uhx-bk-1YF">
+                            <items>
+                                <map height="120" alignment="left" id="c7E-3f-Rft"/>
+                            </items>
+                        </group>
+                        <slider height="30" alignment="left" value="1" minimum="1" maximum="5" steps="5" id="Mai-Zq-LyZ">
+                            <connections>
+                                <action selector="changeMapRegion:" destination="nGv-VH-q5v" id="S7b-c3-F9m"/>
+                            </connections>
+                        </slider>
+                        <button width="1" alignment="left" title="Heart Beate" id="Owh-gi-ZLQ">
+                            <connections>
+                                <segue destination="H3b-o4-f5b" kind="modal" id="UEu-Rb-C47"/>
+                            </connections>
+                        </button>
+                    </items>
+                    <connections>
+                        <outlet property="locationSlider" destination="Mai-Zq-LyZ" id="FvG-gA-DAn"/>
+                        <outlet property="mapObject" destination="c7E-3f-Rft" id="1b7-IK-SOO"/>
+                    </connections>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="468" y="360"/>
+        </scene>
+        <!--Health Detail Interface Controller-->
+        <scene sceneID="zRV-1d-2FE">
+            <objects>
+                <controller id="H3b-o4-f5b" customClass="HealthDetailInterfaceController" customModule="Watch_Extension">
+                    <items>
+                        <group width="1" alignment="left" id="GQy-eO-zYb">
+                            <items>
+                                <imageView width="38" height="33" alignment="left" image="Heart" id="eoC-Cc-Un9"/>
+                                <label alignment="center" text="---" minimumScaleFactor="0.20000000000000001" id="zgX-nb-7rm">
+                                    <fontDescription key="font" name="Symbol" family="Symbol" pointSize="28"/>
+                                </label>
+                                <label alignment="right" text="BPM" id="mfX-9Q-PGl">
+                                    <color key="textColor" red="0.86132884030000001" green="0.058584794400000001" blue="0.11313973369999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <fontDescription key="font" style="UICTFontTextStyleFootnote"/>
+                                </label>
+                            </items>
+                        </group>
+                        <label height="20" alignment="center" text="Device Name" id="2Re-V1-j5F"/>
+                        <button width="1" alignment="left" title="Start" id="qVV-Gn-5tJ">
+                            <connections>
+                                <action selector="startBtnTapped" destination="H3b-o4-f5b" id="rSM-XH-eMt"/>
+                            </connections>
+                        </button>
+                        <label width="136" alignment="left" text="Step Count:" numberOfLines="0" id="y8E-I3-Lvn">
+                            <fontDescription key="font" type="system" pointSize="10"/>
+                        </label>
+                    </items>
+                    <connections>
+                        <outlet property="deviceLabel" destination="2Re-V1-j5F" id="PCf-hY-f4B"/>
+                        <outlet property="heart" destination="eoC-Cc-Un9" id="6i3-Dl-AVY"/>
+                        <outlet property="label" destination="zgX-nb-7rm" id="MrF-Wa-iGq"/>
+                        <outlet property="lblStepCount" destination="y8E-I3-Lvn" id="wyS-c5-QQM"/>
+                        <outlet property="startStopButton" destination="qVV-Gn-5tJ" id="5zL-Kh-1TB"/>
+                    </connections>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="766" y="359"/>
+        </scene>
+    </scenes>
+</document>
