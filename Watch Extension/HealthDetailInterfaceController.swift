@@ -225,6 +225,11 @@ class HealthDetailInterfaceController: WKInterfaceController , HKWorkoutSessionD
         healthStore.execute(query)*/
         
         
+        
+        
+        /*Ghanshyam gupta updated code test by github ...*/
+        
+        
         // Request the step count.
         let stepType = HKSampleType.quantityType(forIdentifier: HKQuantityTypeIdentifier.stepCount)
         let now = Date()
